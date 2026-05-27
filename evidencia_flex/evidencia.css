@@ -21,6 +21,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    background-color: #0e1142ec;
+    color: white;
 }
     
 .hora{
@@ -42,11 +44,9 @@
 }
 
 .dia{
-    flex-grow: 1;
-    flex-basis: 0;        /* ← todas parten del mismo tamaño base */
-    min-width: 0;         /* ← evita que el contenido empuje el ancho */
+    flex: 1;        
+    min-width: 0;         
     border-right: rgb(75, 75, 75) 1px solid;
-    overflow: hidden;     /* ← contiene cualquier desbordamiento */
 }
 
 .dia:last-child{
@@ -58,11 +58,13 @@
     height: 70px;
     text-align: center;   
     padding: 20px;
+    color: white;
+    background-color: #0e1142ec;
 }
 
 .materia{
-    width: calc(100% - 20px);   /* ← relativo a la columna, con margen */
-    height: 254px;        /* ← altura exacta para 3 franjas */
+    width: calc(100% - 20px);   
+    height: 254px;        
     margin: 8px auto;
     border-radius: 15px;
     padding: 20px;
@@ -71,6 +73,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.466);
 }
 
 .derecho{
@@ -114,7 +117,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;               /* ← quita márgenes variables */
+    margin: 0;               
 }
 
 .instructor{
