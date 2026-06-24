@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container del menu-->
+    <div class="main-header">
+        <!-- menu -->
+        <div class="main-header__container">
+            <!-- logo del menu -->
+            <div class="main-header__logo">
+                Calendario de Eventos
+            </div>
+
+            <!-- toggle menu: boton de hamburguesa -->
+            <button class="main-header__toggle" id="menu-toggle"> 
+                <div class="main-header__bar"></div>
+                <div class="main-header__bar"></div>
+                <div class="main-header__bar"></div>
+            </button>
+
+            <!-- navegacion: buscar, ayuda, configuracion -->
+            <div class="main-nav" id="main-nav">
+                <ul class="main-nav__list">
+                    <li class="main-nav__item">
+                        <a class="main-nav__link" href="">
+                            Buscar
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a class="main-nav__link" href="#">
+                            Ayuda
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a class="main-nav__link" href="#">
+                            Configuración
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- container del calendar-->
+    <div class="container">
+
+        <!-- Aquí va a ir el nombre del mes -->
+        <div class="month"> June </div>
+
+        <!-- Aquí van a ir los días de la semana -->
+         <!--Este grid container-->
+        <div class="days">
+            <div class="days__item">Mon</div>
+            <div class="days__item">Tue</div>
+            <div class="days__item">Wed</div>
+            <div class="days__item">Thu</div>
+            <div class="days__item">Fri</div>
+            <div class="days__item">Sat</div>
+            <div class="days__item">Sun</div>
+        </div>
+
+        <!-- Aquí van a ir los días del mes -->
+         <div class="schedule">
+            <div class="schedule__day">
+                <strong>1</strong>
+                <div class="event-card red">
+                    <div class="event-card__icon">❤️</div>
+                        <div class="event-card__content">
+                            <h4>Día de las Madres y los Padres</h4>
+                            <p>Honramos la labor parental.</p>
+                            <span>09:00 AM</span>
+                        </div>
+                </div>
+            </div>
+            <div class="schedule__day">2</div>
+            <div class="schedule__day">
+                <strong>3</strong>
+                <div class="event-card green">
+                    <div class="event-card__icon">🚲</div>
+                        <div class="event-card__content">
+                        <h4>Día de la Bicicleta</h4>
+                        <p>Promovemos la movilidad sostenible.</p>
+                        <span>09:00 AM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__day">4</div>
+            <div class="schedule__day">
+                <strong>5</strong>
+                <div class="event-card green">
+                    <div class="event-card__icon">🌿</div>
+                        <div class="event-card__content">
+                        <h4>Día del Medio Ambiente</h4>
+                        <p>Cuidemos nuestro planeta.</p>
+                        <span>09:00 AM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__day">6</div>
+            <div class="schedule__day">7</div>
+            <div class="schedule__day">
+                <strong>8</strong>
+                    <div class="event-card purple">
+                        <div class="event-card__icon">⛪</div>
+                            <div class="event-card__content">
+                                <h4>Corpus Christi</h4>
+                                <p>Celebración católica en Colombia.</p>
+                                <span>09:00 AM</span>
+                            </div>
+                    </div>
+
+                    <div class="event-card blue">
+                        <div class="event-card__icon">🌊</div>
+                            <div class="event-card__content">
+                                <h4>Día de los Océanos</h4>
+                                <p>Protejamos la vida marina.</p>
+                                <span>10:00 AM</span>
+                            </div>
+                    </div>
+            </div>
+            <div class="schedule__day">9</div>  
+            <div class="schedule__day">10</div>
+            <div class="schedule__day">11</div>
+            <div class="schedule__day">12</div>
+            <div class="schedule__day">13</div>
+            <div class="schedule__day">
+                <strong>14</strong>
+                <div class="event-card red">
+                    <div class="event-card__icon">🩸</div>
+                        <div class="event-card__content">
+                            <h4>Día del Donante de Sangre</h4>
+                            <p>Donar sangre salva vidas.</p>
+                            <span>09:00 AM</span>
+                        </div>
+                </div>
+            </div>
+            <div class="schedule__day">
+                <strong>15</strong>
+                <div class="event-card orange">
+                    <div class="event-card__icon">❤️‍🩹</div>
+                        <div class="event-card__content">
+                            <h4>Sagrado Corazón de Jesús</h4>
+                            <p>Festividad religiosa.</p>
+                            <span>09:00 AM</span>
+                        </div>
+                </div>
+            </div>
+            <div class="schedule__day">16</div>
+            <div class="schedule__day">17</div>
+            <div class="schedule__day">18</div>
+            <div class="schedule__day">19</div>
+            <div class="schedule__day">
+                <strong>20</strong>
+                    <div class="event-card orange">
+                        <div class="event-card__icon">☀️</div>
+                            <div class="event-card__content">
+                                <h4>Solsticio de Verano</h4>
+                                <p>Inicio del verano.</p>
+                                <span>09:00 AM</span>
+                            </div>
+                    </div>
+            </div>
+            <div class="schedule__day">21</div>
+            <div class="schedule__day">22</div>
+            <div class="schedule__day">23</div>
+            <div class="schedule__day">
+                <strong>24</strong>
+                    <div class="event-card orange">
+                        <div class="event-card__icon">👨‍🌾</div>
+                            <div class="event-card__content">
+                                <h4>Día del Campesino</h4>
+                                <p>Reconocemos la labor agrícola.</p>
+                                <span>09:00 AM</span>
+                            </div>
+                    </div>
+            </div>
+            <div class="schedule__day">25</div>
+            <div class="schedule__day">26</div>
+            <div class="schedule__day">27</div>
+            <div class="schedule__day">28</div>
+            <div class="schedule__day">
+                <strong>29</strong>
+                    <div class="event-card purple">
+                        <div class="event-card__icon">✝️</div>
+                            <div class="event-card__content">
+                                <h4>Día de San Pedro y San Pablo</h4>
+                                <p>Tradición religiosa colombiana.</p>
+                                <span>09:00 AM</span>
+                            </div>
+                    </div>
+            </div>
+            <div class="schedule__day">30</div>
+         </div>
+    </div>
+
+    <!-- Funcion js del click-->
+    <script>
+        // DOM: Document Object Model
+        const menuToggle = document.getElementById('menu-toggle')
+        const mainNav = document.getElementById('main-nav')
+        
+        //evento click del menutoggle:
+        menuToggle.addEventListener('click', function() {
+            //cambiar la clase que controla la altura del menu
+            mainNav.classList.toggle('main-nav__open')
+        })
+    </script>
+</body>
+</html>
