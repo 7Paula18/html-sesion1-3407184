@@ -24,6 +24,7 @@ body{
     color: #51535d;
     font-weight: 400;
     padding: 30px 0;
+    background-color: #e8e3f5c0;
 }
 
 .days{
@@ -56,6 +57,13 @@ body{
     overflow: hidden;
     width: 100%;
     height: 100%;
+
+    /* TRANSICIÓN: Para el cambio de color de fondo */
+    transition: background-color 0.2s ease;
+}
+
+.schedule__day:hover {
+    background-color: #eeedf3a9; /* Un azul extremadamente sutil */
 }
 
 .main-header{
@@ -125,6 +133,18 @@ body{
     max-height: 200px;
 }
 
+/* Definición de la animación de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .event-card {
     border-radius: 10px;
     padding: 6px;
@@ -134,29 +154,22 @@ body{
     align-items: flex-start;
     overflow: hidden;
     width: 100%;
+    
+    /* TRANSICIÓN: Suaviza los cambios de estado (color, sombra, transformación) */
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.2s ease;
+    cursor: pointer;
+
+    /* ANIMACIÓN: Se ejecuta al cargar el calendario */
+    animation: fadeInUp 0.4s ease backwards;
 }
 
-.event-card__icon {
-    font-size: 1rem;
-}
-.event-card__content {
-    min-width: 0; 
-    flex: 1;
-}
-.event-card__content h4 {
-    margin: 0;
-    font-size: 0.72rem;
+/* El evento se "levanta" sutilmente */
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.479);
 }
 
-.event-card__content p {
-    margin: 3px 0;
-    font-size: 0.65rem;
-}
 
-.event-card__content span {
-    font-size: 0.62rem;
-    font-weight: bold;
-}
 
 /* Colores */
 .red {
@@ -200,80 +213,111 @@ media-query: una adaptacion de un estilo (clase)
             para un breakpoint especifico
 */
 
-@media screen and (max-width: 500px){
-    body {
-        padding: 80px 0 20px 0; /* Reduce el espacio superior en móviles */
-    }
-    .container{
-        width: 95%;     
+/* ==========================================================================
+   1. PANTALLAS MEDIANAS (Tablets: Entre 501px y 850px)
+   Mantiene las 7 columnas. Oculta la descripción, pero conserva TÍTULO e ICONO.
+   ========================================================================== */
+@media screen and (max-width: 850px) and (min-width: 501px) {
+    .schedule__day {
+        padding: 6px 4px;
+        gap: 4px;
     }
 
-    .schedule__day{
+    .event-card {
         padding: 4px;
-        text-align: left;
+        gap: 4px;
+        border-radius: 6px;
     }
 
-    .main-header__toggle{
+    .event-card__icon {
+        font-size: 0.8rem;
+    }
+
+    /* Muestra el título adaptado */
+    .event-card__content h4 {
+        font-size: 0.65rem;
+        line-height: 1.1;
+        white-space: normal; 
+    }
+
+    /* OCULTA solo la descripción larga */
+    .event-card__content p {
+        display: none !important; 
+    }
+
+    .event-card__content span {
+        font-size: 0.58rem;
+        display: block;
+        margin-top: 2px;
+    }
+}
+
+/* ==========================================================================
+   2. PANTALLAS PEQUEÑAS (Celulares: De 500px para abajo)
+   Mantiene las 7 columnas de forma ultra compacta. Muestra SOLO EL ICONO.
+   ========================================================================== */
+@media screen and (max-width: 500px) {
+    .schedule__day {
+        padding: 4px 2px;
+        align-items: center; /* Centra el número del día y el icono */
+        gap: 4px;
+    }
+
+    /* Transforma la tarjeta en un botón cuadrado contenedor del emoji */
+    .event-card {
+        padding: 0;
+        justify-content: center; 
+        align-items: center;
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        border-radius: 6px;
+    }
+
+    .event-card__icon {
+        font-size: 1.1rem;
+        line-height: 1;
+        margin: 0;
+    }
+
+    /* OCULTA TODO EL TEXTO (Título, descripción y hora) */
+    .event-card__content {
+        display: none !important;
+    }
+
+    .schedule {
+        grid-auto-rows: minmax(70px, auto); /* Ajusta la altura para que no queden celdas gigantes */
+    }
+
+    /* --- Menú Hamburguesa que ya tenías configurado --- */
+    .main-header__toggle {
         display: flex;
     }
-
-    .main-nav{
+    .main-nav {
         position: absolute;
         top: 70px;
         left: 0;
         background-color: #fff;
         width: 100%;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
-        /* Ocultar por defecto el menu */
         max-height: 0;
-        /* Controlar el desborde de las opciones*/
         overflow: hidden;
     }
-
-    .main-nav__list{
+    .main-nav__list {
         flex-direction: column;
         gap: 0;
         width: 100%;
     }
-
-    .main-nav__item{
+    .main-nav__item {
         width: 100%;
         border-top: 1px solid #a6a8b31f;
     }
-
-    .main-nav__link{
+    .main-nav__link {
         display: block;
         padding: 15px 20px;
-        width: 100px;
+        width: 100%;
     }
-
-    .main-nav__open{
+    .main-nav__open {
         max-height: 200px;
     }
-
-    .schedule {
-        grid-auto-rows: auto;
-        min-height: 80px;
-    }
-
-    .event-card{
-        padding: 4px;
-        gap: 4px;
-        border-radius: 6px;
-    }
-
-    .event-card__icon{
-        font-size: 0.7rem;
-    }
-
-    .event-card__content h4{
-        font-size: 0.55rem;
-        white-space: normal; /* En pantallas muy pequeñas, permite que salte de línea si es necesario */
-    }
-
-    .event-card__content p,
-    .event-card__content span{
-        display: none;
-    }
-    
 }
